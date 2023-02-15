@@ -11,18 +11,22 @@
 </head>
 
 <body>
-    <section class="location">
-        <h1 class="current-location">Please, Allow location permissions</h1>
-        <img  alt="icon" id="weather-icon">
-    </section>
-    <section class="description">
-        <div class="degree-section">
-            <h2 class="current-degree"></h2>
-        <span class="current-unit">F</span>
-        </div>
-        <p class="current-info"></p>
-    </section>
-
+    <div id="pre-loader">
+        <p>Please allow locaion permissions</p>
+    </div>
+    <article class="post-load">
+        <section class="location">
+            <h1 class="current-location"></h1>
+            <img  alt="icon" id="weather-icon">
+        </section>
+        <section class="description">
+            <div class="degree-section">
+                <h2 class="current-degree"></h2>
+            <span class="current-unit">F</span>
+            </div>
+            <p class="current-info"></p>
+        </section>
+    </article>
 
 
     <script src="main.js"></script>

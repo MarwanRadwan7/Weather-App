@@ -1,7 +1,9 @@
+let loader = document.getElementById("pre-loader") ;
+let afterload = document.querySelector(".post-load") ;
 window.addEventListener('load', () => {
   let longitude;
   let latitude;
-
+  afterload.style.display = "none" ;
   let temperatureDegree = document.querySelector('.current-degree') ;
   let temperatureUnit = document.querySelector('.current-unit') ;
   let temperatureDescription = document.querySelector('.current-info') ;
@@ -26,9 +28,10 @@ window.addEventListener('load', () => {
         const{description , icon} = responseData["weather"][0] ;
         const country = responseData.sys.country ;
 
-        
+        afterload.style.display = "block" ;
+        loader.style.display = "none" ;
         //Set DOM Elements from API
-        temperatureDegree.textContent = temp ;
+        temperatureDegree.textContent = Math.round((temp - 273.15) * 9/5 + 32 ) ;
         location.textContent = `${responseData.name},${country}` ;
         temperatureDescription.textContent = description.toUpperCase() ;
         weatherIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png` ;
@@ -41,7 +44,7 @@ window.addEventListener('load', () => {
             temperatureDegree.textContent = Math.round(temp - 273.15) ;
           }else{
             temperatureUnit.textContent = 'F' ;
-            temperatureDegree.textContent = temp ;
+            temperatureDegree.textContent = Math.round((temp - 273.15) * 9/5 + 32 ) ;
           }
         })
       });
